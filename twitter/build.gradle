@@ -61,7 +61,7 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.findByName('release')
-                groupId = 'com.github.gsshop.microsvc'
+                groupId = 'com.twitter.sdk.android'
                 artifactId = 'twitter'
                 version = '3.2.1'
             }
