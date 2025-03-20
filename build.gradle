@@ -40,7 +40,7 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                from components.release
+                from components.findByName('release')
                 groupId = 'com.github.gsshop-microsvc'
                 artifactId = 'twitter-kit-android'
                 version = '3.2.1'
