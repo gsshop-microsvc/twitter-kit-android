@@ -16,7 +16,6 @@
  */
 
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -58,19 +57,6 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
         unitTests.includeAndroidResources true
-    }
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.findByName('release')
-                groupId = 'com.twitter.sdk.android'
-                artifactId = 'twitter-composer'
-                version = '3.2.1'
-            }
-        }
     }
 }
 

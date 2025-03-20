@@ -34,20 +34,22 @@ subprojects { Project subproject ->
         google()
         jcenter()
     }
-}
-
-afterEvaluate {
+    
+    afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                from components.findByName('release')
-                groupId = 'com.github.gsshop-microsvc'
-                artifactId = 'twitter-kit-android'
-                version = '3.2.1'
-            }
+                    from components.findByName('release')
+                    groupId = subproject.group
+                    artifactId = subproject.name
+                    version = subproject.version
+                }
         }
     }
 }
+}
+
+
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.8.1'
