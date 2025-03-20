@@ -16,10 +16,7 @@
  */
 
 apply from: rootProject.file('dependencies.gradle')
-
-plugins {
-    id 'maven-publish'
-}
+apply plugin: 'maven-publish'
 
 subprojects { Project subproject ->
     buildscript {
