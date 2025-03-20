@@ -17,6 +17,10 @@
 
 apply from: rootProject.file('dependencies.gradle')
 
+plugins {
+    id 'maven-publish'
+}
+
 subprojects { Project subproject ->
     buildscript {
         repositories {
@@ -32,6 +36,19 @@ subprojects { Project subproject ->
     repositories {
         google()
         jcenter()
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.gsshop-microsvc'
+                artifactId = 'twitter-kit-android'
+                version = '3.2.1'
+            }
+        }
     }
 }
 
