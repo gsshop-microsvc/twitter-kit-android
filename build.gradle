@@ -19,6 +19,18 @@ apply from: rootProject.file('dependencies.gradle')
 apply plugin: 'maven-publish'
 
 subprojects { Project subproject ->
+
+    publishing {
+        publications {
+            release(MavenPublication) {
+                    from components.findByName('release')
+                    groupId = subproject.group
+                    artifactId = subproject.name
+                    version = subproject.version
+                }
+        }
+}
+
     buildscript {
         repositories {
             jcenter()
@@ -34,19 +46,7 @@ subprojects { Project subproject ->
         google()
         jcenter()
     }
-    
-    afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                    from components.findByName('release')
-                    groupId = subproject.group
-                    artifactId = subproject.name
-                    version = subproject.version
-                }
-        }
-    }
-}
+
 }
 
 
