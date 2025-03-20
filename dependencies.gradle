@@ -15,9 +15,6 @@ ext {
             spoonGradlePlugin          : 'com.stanfy.spoon:spoon-gradle-plugin:1.0.4',
             androidGradlePlugin        : 'com.android.tools.build:gradle:3.0.0',
 
-            // Mopub
-            mopub                      : 'com.mopub:mopub-sdk-native-static:4.11.0@aar',
-
             // Sample App
             leakCanary                 : 'com.squareup.leakcanary:leakcanary-android:1.5.3',
             leakCanaryNoOp             : 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3',
