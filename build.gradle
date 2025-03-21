@@ -23,8 +23,7 @@ subprojects { Project subproject ->
         if (subproject.plugins.hasPlugin('com.android.library')) {
             apply plugin: 'maven-publish'
 
-            publishing {
-                publications {
+                publishing.publications {
                     release(MavenPublication) {
                     from components.findByName('release')
                     groupId = subproject.group
@@ -38,7 +37,6 @@ subprojects { Project subproject ->
                     artifactId = subproject.name
                     version = subproject.version
                 }
-            }
             }
             }
         }

@@ -19,3 +19,4 @@ include ':twitter-core'
 include ':tweet-composer'
 include ':tweet-ui'
 include ':twitter'
+enableFeaturePreview('STABLE_PUBLISHING')
