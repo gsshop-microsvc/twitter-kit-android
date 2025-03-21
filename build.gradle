@@ -35,10 +35,16 @@ subprojects { Project subproject ->
         jcenter()
     }
     
-    afterEvaluate {
-    publishing {
+   publishing {
         publications {
             release(MavenPublication) {
+                    from components.findByName('release')
+                    groupId = subproject.group
+                    artifactId = subproject.name
+                    version = subproject.version
+                }
+
+            debug(MavenPublication) {
                     from components.findByName('release')
                     groupId = subproject.group
                     artifactId = subproject.name
@@ -47,11 +53,10 @@ subprojects { Project subproject ->
         }
     }
 }
-}
 
 
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.8.1'
+   gradleVersion = '4.8.1'
 }
 
