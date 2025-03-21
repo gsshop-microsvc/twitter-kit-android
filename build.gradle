@@ -19,10 +19,8 @@ apply from: rootProject.file('dependencies.gradle')
 apply plugin: 'maven-publish'
 
 subprojects { Project subproject ->
-        if (subproject.plugins.hasPlugin('com.android.library')) {
-            apply plugin: 'maven-publish'
-
-                publishing.publications {
+    afterEvaluate {
+         publishing.publications {
                     release(MavenPublication) {
                     from components.findByName('release')
                     groupId = subproject.group
@@ -37,7 +35,7 @@ subprojects { Project subproject ->
                     version = subproject.version
                 }
             }
-            }
+        }
     
 
     buildscript {
