@@ -45,7 +45,7 @@ subprojects { Project subproject ->
                 }
 
             debug(MavenPublication) {
-                    from components.findByName('release')
+                    from components.findByName('debug')
                     groupId = subproject.group
                     artifactId = subproject.name
                     version = subproject.version
